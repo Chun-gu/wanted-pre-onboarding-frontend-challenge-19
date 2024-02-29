@@ -26,11 +26,19 @@ module.exports = {
 		project: ["./tsconfig.json", "./tsconfig.node.json"],
 		tsconfigRootDir: __dirname,
 	},
-	plugins: ["react-refresh"],
+	plugins: ["react-refresh", "@stylistic"],
 	rules: {
 		"react-refresh/only-export-components": [
 			"warn",
 			{ allowConstantExport: true },
+		],
+		"@typescript-eslint/consistent-type-definitions": ["error", "type"],
+		"@stylistic/padding-line-between-statements": [
+			"error",
+			{ prev: "*", blankLine: "always", next: "return" },
+			{ prev: "import", blankLine: "always", next: "*" },
+			{ prev: "import", blankLine: "any", next: "import" },
+			{ prev: ["type", "interface"], blankLine: "always", next: "*" },
 		],
 		"import/order": [
 			"error",
