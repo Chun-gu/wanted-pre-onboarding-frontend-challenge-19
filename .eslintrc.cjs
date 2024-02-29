@@ -18,7 +18,7 @@ module.exports = {
 		"plugin:import/typescript",
 		"prettier",
 	],
-	ignorePatterns: ["dist", ".eslintrc.cjs"],
+	ignorePatterns: ["dist", ".eslintrc.cjs", "postcss.config.js"],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaVersion: "latest",
@@ -63,4 +63,10 @@ module.exports = {
 			},
 		],
 	},
+	overrides: [
+		{
+			extends: ["plugin:@typescript-eslint/disable-type-checked"],
+			files: ["tailwind.config.ts"],
+		},
+	],
 };
