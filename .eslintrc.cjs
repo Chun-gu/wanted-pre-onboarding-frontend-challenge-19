@@ -40,6 +40,7 @@ module.exports = {
 			{ prev: "import", blankLine: "any", next: "import" },
 			{ prev: ["type", "interface"], blankLine: "always", next: "*" },
 		],
+		"import/consistent-type-specifier-style": ["error", "prefer-top-level"],
 		"import/order": [
 			"error",
 			{
