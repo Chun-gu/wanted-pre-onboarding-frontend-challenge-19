@@ -75,7 +75,7 @@ module.exports = {
 	overrides: [
 		{
 			extends: ["plugin:@typescript-eslint/disable-type-checked"],
-			files: ["tailwind.config.ts"],
+			files: ["tailwind.config.ts", "vite.config.ts"],
 		},
 	],
 };
