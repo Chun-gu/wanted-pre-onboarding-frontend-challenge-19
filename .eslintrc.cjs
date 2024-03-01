@@ -40,6 +40,16 @@ module.exports = {
 			{ prev: "import", blankLine: "any", next: "import" },
 			{ prev: ["type", "interface"], blankLine: "always", next: "*" },
 		],
+		"sort-imports": [
+			"error",
+			{
+				ignoreCase: true,
+				ignoreDeclarationSort: true,
+				ignoreMemberSort: false,
+				memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+				allowSeparatedGroups: true,
+			},
+		],
 		"import/consistent-type-specifier-style": ["error", "prefer-top-level"],
 		"import/order": [
 			"error",
