@@ -1,12 +1,12 @@
 import { useId, useRef } from "react";
 
-type TodoFormProps = {
-	onSubmit: (todoContent: string) => void;
-};
+import { useAppDispatch } from "@/store";
+import { addTodo } from "@/store/slices/todo-slice";
 
-export function TodoForm({ onSubmit: addTodo }: TodoFormProps) {
+export function TodoForm() {
 	const todoInputId = useId();
 	const todoInputRef = useRef<HTMLInputElement>(null);
+	const dispatch = useAppDispatch();
 
 	function handleSubmitTodo(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -16,7 +16,12 @@ export function TodoForm({ onSubmit: addTodo }: TodoFormProps) {
 		const todoContent = todoInputRef.current.value;
 		if (todoContent === "") return;
 
-		addTodo(todoContent);
+		const newTodo = {
+			id: crypto.randomUUID(),
+			content: todoContent,
+		};
+
+		dispatch(addTodo(newTodo));
 
 		todoInputRef.current.value = "";
 	}

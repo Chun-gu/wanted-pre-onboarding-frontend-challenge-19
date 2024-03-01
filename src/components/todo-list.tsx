@@ -1,14 +1,14 @@
-import type { Todo } from "@/pages/todo.page";
+import { useAppSelector } from "@/store";
 
 import { TodoListItem } from "./todo-list-item";
 
-type TodoListProps = { todos: Todo[]; onClick: (id: string) => void };
+export function TodoList() {
+	const todos = useAppSelector(({ todos }) => todos.todos);
 
-export function TodoList({ todos, onClick }: TodoListProps) {
 	return (
 		<ul>
 			{todos.map((todo) => (
-				<TodoListItem key={todo.id} todo={todo} onClick={onClick} />
+				<TodoListItem key={todo.id} todo={todo} />
 			))}
 		</ul>
 	);
